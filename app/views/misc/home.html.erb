@@ -1,3 +1,5 @@
+<div id="bye">Click me</div>
+
 <h1>Cities</h1>
 
 <ul id="cities_list">
@@ -9,6 +11,7 @@
   <li id="sfo" class="west">San Francisco</li>
 </ul>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
   // Write your JS here.
   // Open the JS console and refresh the page to see the output.
@@ -25,5 +28,28 @@
       console.log(`${i}`)
   }
   */
+
+  let items = document.getElementsByTagName("li");
+
+  let chi = $("#ord");
+  chi.css("background-color", "green")
   
+  let list = document.getElementById("cities_list");
+
+  let eastItems = document.getElementsByClassName("east");
+  for (let i = 0; i < eastItems.length; i++) {
+    eastItems[i].style.border = "thin red solid"
+  }
+
+  let den = document.createElement("li")
+  let den_text = document.createTextNode("Denver")
+  den.append(den_text)
+  den.style.background = "orange"
+  den.className = "west"
+  den.id = "den"
+  list.prepend(den)   
+
+  $("body").on("click", "#bye", function() {
+    $(".west").slideToggle();
+  });
 </script>
